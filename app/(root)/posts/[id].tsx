@@ -1,3 +1,4 @@
+import { Post } from "@/app";
 import { useLocalSearchParams, useNavigation } from "expo-router";
 import React, { useLayoutEffect } from "react";
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
@@ -20,7 +21,7 @@ const PostDetail = () => {
     );
   }
 
-  const postData = JSON.parse(post);
+  const postData: Post = JSON.parse(post);
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -31,6 +32,7 @@ const PostDetail = () => {
       />
       <Text style={styles.title}>{postData.title}</Text>
       <Text style={styles.body}>{postData.body}</Text>
+      <Text style={styles.id}>POST ID: {postData.id}</Text>
     </ScrollView>
   );
 };
@@ -62,6 +64,11 @@ const styles = StyleSheet.create({
   image: {
     width: "100%",
     height: 200,
+    marginBottom: 20,
+  },
+  id: {
+    fontSize: 14,
+    color: "#333446",
     marginBottom: 20,
   },
 });
